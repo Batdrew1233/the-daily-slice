@@ -61,7 +61,8 @@ public class UserInterface {
                     //Go to add chips
                     break;
                 case "4":
-                    //Go to check out
+                    checkout();
+                    cancelOrder = true;
                     break;
                 case "0":
                     cancelOrder = true;
@@ -83,6 +84,8 @@ public class UserInterface {
         boolean toasted = processGetToasted();
 
         Sandwich sandwich = new Sandwich(size, bread, toasted);
+
+        //Later add processAddToppings
 
     }
 
