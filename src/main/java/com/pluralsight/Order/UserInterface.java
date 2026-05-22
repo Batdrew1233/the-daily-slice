@@ -72,7 +72,63 @@ public class UserInterface {
 
         }
     }
+    private Sandwich processSandwichOrder(){
 
+    }
+
+    private String processGetSize(){
+        while(true){
+            System.out.println("\n");
+            System.out.println("Choose Sandwich Size");
+            System.out.println(" 1) 4 inch");
+            System.out.println(" 2) 8 inch");
+            System.out.println(" 3) 12 inch");
+            System.out.println("Your choice: ");
+            String  choice = scanner.nextLine();
+
+            switch(choice) {
+                case "1":
+                    return "4";
+                case "2":
+                    return "8";
+                case "12":
+                    return "12";
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+
+    }
+
+    private String processGetBread(){
+        while(true){
+            System.out.println("\n");
+            System.out.println("Choose Bread");
+            System.out.println(" 1) White");
+            System.out.println(" 2) Wheat");
+            System.out.println(" 3) Rye");
+            System.out.println(" 4) Wrap");
+            String choice = scanner.nextLine();
+
+            switch(choice) {
+                case "1":
+                    return "White";
+                case "2":
+                    return "Wheat";
+                case "3":
+                    return "Rye";
+                case "4":
+                    return "Wrap";
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+    }
+
+    private boolean processGetToasted(){
+        System.out.println("\n");
+
+    }
 
 
 }
