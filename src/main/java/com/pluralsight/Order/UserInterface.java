@@ -72,7 +72,17 @@ public class UserInterface {
 
         }
     }
+    public void checkout(){
+        System.out.println("\n");
+        System.out.println("===== Checkout =====");
+
+    }
     private Sandwich processSandwichOrder(){
+        String size = processGetSize();
+        String bread = processGetBread();
+        boolean toasted = processGetToasted();
+
+        Sandwich sandwich = new Sandwich(size, bread, toasted);
 
     }
 
@@ -120,13 +130,28 @@ public class UserInterface {
                 case "4":
                     return "Wrap";
                 default:
-                    System.out.println("Invalid choice");
+                    System.out.println("Invalid choice.");
             }
         }
     }
 
     private boolean processGetToasted(){
-        System.out.println("\n");
+        while(true) {
+            System.out.println("\n");
+            System.out.println("Would you like it toasted? (Yes/No)");
+            String answer = scanner.nextLine();
+
+            if (answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y")){
+                return true;
+            } else if (answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("n")){
+                return false;
+
+            }else{
+                System.out.println("Invalid input. Please enter yes or no.");
+            }
+
+        }
+
 
     }
 
