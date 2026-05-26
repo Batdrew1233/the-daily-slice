@@ -40,6 +40,6 @@ public class Sandwich implements IOrder {
 
     @Override
     public String getdescription() {
-        return size + "\" " + breadType + "sandwich";
+        return size + "inch " + breadType + "sandwich";
     }
 }
