@@ -1,4 +1,4 @@
-package com.pluralsight.Order;
+package com.pluralsight.toppings;
 
 public abstract class Topping {
     private String name;
