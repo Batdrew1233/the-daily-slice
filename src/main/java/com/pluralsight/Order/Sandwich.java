@@ -17,7 +17,7 @@ public class Sandwich implements IOrder {
         this.toasted = toasted;
     }
     public void addToppings(Topping topping){
-        topping.add(topping);
+        toppings.add(topping);
     }
 
     @Override
