@@ -14,6 +14,8 @@ public class Meat extends PremiumTopping {
             return isExtra() ? 3.00 : 2.00;
         } else if (size.equals("12")) {
             return isExtra() ? 4.50 : 3.00;
+        }else{
+            return 0;
         }
     }
 }

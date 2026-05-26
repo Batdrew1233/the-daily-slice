@@ -6,8 +6,4 @@ public class Sides extends RegularTopping{
         super(name);
     }
 
-    @Override
-    public double getPrice() {
-        return super.getPrice();
-    }
 }
