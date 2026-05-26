@@ -33,12 +33,13 @@ public class Sandwich implements IOrder {
             total = 8.50;
         }
         for(Topping topping : toppings){
-            total += topping.g
+            total += topping.getPrice(size);
         }
+        return total;
     }
 
     @Override
     public String getdescription() {
-        return "";
+        return size + "\" " + breadType + "sandwich";
     }
 }
