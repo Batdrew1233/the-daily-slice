@@ -10,4 +10,6 @@ public abstract class Topping {
     public String getName() {
         return name;
     }
+
+    public abstract double getPrice(String size);
 }

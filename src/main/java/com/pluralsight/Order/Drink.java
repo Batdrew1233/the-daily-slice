@@ -11,11 +11,20 @@ public class Drink implements IOrder{
 
     @Override
     public double getPrice() {
-        return 0;
+        if (size.equalsIgnoreCase("small")){
+            return 2.00;
+        }
+        else if(size.equalsIgnoreCase("medium")){
+            return 2.50;
+        }else if (size.equalsIgnoreCase("large")) {
+            return 3.00;
+        }else {
+            return 0;
+        }
     }
 
     @Override
     public String getdescription() {
-        return "";
+        return "Drink: ";
     }
 }

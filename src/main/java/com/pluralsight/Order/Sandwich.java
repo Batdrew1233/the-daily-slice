@@ -22,7 +22,19 @@ public class Sandwich implements IOrder {
 
     @Override
     public double getPrice() {
-        return 0;
+        double total = 0;
+
+        if (size.equals("4")){
+            total = 5.50;
+        } else if (size.equals("8")) {
+            total = 7.00;
+        }
+        if (size.equals("12")) {
+            total = 8.50;
+        }
+        for(Topping topping : toppings){
+            total += topping.g
+        }
     }
 
     @Override

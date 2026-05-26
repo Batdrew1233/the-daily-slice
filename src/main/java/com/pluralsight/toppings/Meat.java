@@ -8,6 +8,12 @@ public class Meat extends PremiumTopping {
 
     @Override
     public double getPrice(String size) {
-        return super.getPrice(size);
+        if(size.equals("4")){
+            return isExtra() ? 1.50 : 1.00;
+        } else if (size.equals("8")) {
+            return isExtra() ? 3.00 : 2.00;
+        } else if (size.equals("12")) {
+            return isExtra() ? 4.50 : 3.00;
+        }
     }
 }
