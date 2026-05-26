@@ -243,6 +243,8 @@ public class UserInterface {
                 case "4":
                     sandwich.addToppings(new Cheese("Swiss", extra));
                     break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
             }
         }
     }
