@@ -1,7 +1,6 @@
 package com.pluralsight.Order;
 
-import com.pluralsight.toppings.Cheese;
-import com.pluralsight.toppings.Meat;
+import com.pluralsight.toppings.*;
 
 import java.util.Scanner;
 
@@ -28,7 +27,7 @@ public class UserInterface {
                     order = new Order();
                     orderScreen();
                     break;
-                case "2":
+                case "0":
                     quit = true;
                     System.out.println("Thanks for shopping!");
                     break;
@@ -55,7 +54,8 @@ public class UserInterface {
 
             switch (choice){
                 case "1":
-                    //Go to make sandwich
+                    Sandwich sandwich = processSandwichOrder();
+                    order.addItem(sandwich);
                     break;
                 case "2":
                     //Go to make drink
@@ -88,8 +88,9 @@ public class UserInterface {
 
         Sandwich sandwich = new Sandwich(size, bread, toasted);
 
-        //Later add processAddToppings
-        sandwich.addToppings(new Meat());
+        processAddTopping(sandwich);
+
+        return sandwich;
 
     }
 
@@ -108,7 +109,7 @@ public class UserInterface {
                     return "4";
                 case "2":
                     return "8";
-                case "12":
+                case "3":
                     return "12";
                 default:
                     System.out.println("Invalid choice");
@@ -161,6 +162,7 @@ public class UserInterface {
 
     private boolean processAskExtra() {
         while (true) {
+            System.out.println("\n");
             System.out.println("Would you like extra? (yes/no)");
 
             String answer = scanner.nextLine();
@@ -176,11 +178,16 @@ public class UserInterface {
     }
 
         private void processAddTopping (Sandwich sandwich){
-
+        processAddMeat(sandwich);
+        processAddCheese(sandwich);
+        processAddRegularToppings(sandwich);
+        processAddSauces(sandwich);
+        processAddSides(sandwich);
         }
 
         private void processAddMeat (Sandwich sandwich){
             while (true) {
+                System.out.println("\n");
                 System.out.println("Choose meat:");
                 System.out.println(" 1) Steak");
                 System.out.println(" 2) Ham");
@@ -188,6 +195,7 @@ public class UserInterface {
                 System.out.println(" 4) Roast Beef");
                 System.out.println(" 5) Chicken");
                 System.out.println(" 6) Bacon");
+                System.out.println(" 0) No Meat");
 
                 String choice = scanner.nextLine();
 
@@ -196,22 +204,24 @@ public class UserInterface {
                 switch (choice) {
                     case "1":
                         sandwich.addToppings(new Meat("Steak", extra));
-                        break;
+                        return;
                     case "2":
                         sandwich.addToppings(new Meat("Ham", extra));
-                        break;
+                        return;
                     case "3":
                         sandwich.addToppings(new Meat("Salami", extra));
-                        break;
+                        return;
                     case "4":
                         sandwich.addToppings(new Meat("Roast Beef", extra));
-                        break;
+                        return;
                     case "5":
                         sandwich.addToppings(new Meat("Chicken", extra));
-                        break;
+                        return;
                     case "6":
                         sandwich.addToppings(new Meat("Bacon", extra));
-                        break;
+                        return;
+                    case "0":
+                        return;
                     default:
                         System.out.println("Invalid choice. Please try again.");
                 }
@@ -220,11 +230,13 @@ public class UserInterface {
 
     private void processAddCheese (Sandwich sandwich){
         while (true) {
-            System.out.println("Choose meat:");
+            System.out.println("\n");
+            System.out.println("Choose cheese:");
             System.out.println(" 1) American");
             System.out.println(" 2) Provolone");
             System.out.println(" 3) Cheddar");
             System.out.println(" 4) Swiss");
+            System.out.println(" 0) No Cheese");
 
             String choice = scanner.nextLine();
 
@@ -233,21 +245,137 @@ public class UserInterface {
             switch (choice) {
                 case "1":
                     sandwich.addToppings(new Cheese("American", extra));
-                    break;
+                    return;
                 case "2":
                     sandwich.addToppings(new Cheese("Provolone", extra));
-                    break;
+                    return;
                 case "3":
                     sandwich.addToppings(new Cheese("Cheddar", extra));
-                    break;
+                    return;
                 case "4":
                     sandwich.addToppings(new Cheese("Swiss", extra));
-                    break;
+                    return;
+                case "0":
+                    return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
         }
     }
 
+    private void processAddRegularToppings(Sandwich sandwich){
+        boolean addingToppings = true;
 
+        while (addingToppings){
+            System.out.println("\n");
+            System.out.println("Choose a regular topping:");
+            System.out.println(" 1) Lettuce");
+            System.out.println(" 2) Tomato");
+            System.out.println(" 3) Onion");
+            System.out.println(" 4) Pickles");
+            System.out.println(" 5) Peppers");
+            System.out.println(" 0) Done");
+
+            String choice = scanner.nextLine();
+
+            switch (choice){
+                case "1":
+                    sandwich.addToppings(new RegularTopping("Lettuce"));
+                    break;
+                case "2":
+                    sandwich.addToppings(new RegularTopping("Tomato"));
+                    break;
+                case "3":
+                    sandwich.addToppings(new RegularTopping("Onion"));
+                    break;
+                case "4":
+                    sandwich.addToppings(new RegularTopping("Pickles"));
+                    break;
+                case "5":
+                    sandwich.addToppings(new RegularTopping("Peppers"));
+                    break;
+                case "0":
+                    addingToppings = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
     }
+     private void processAddSauces(Sandwich sandwich){
+        boolean addingSauces = true;
+
+        while (addingSauces) {
+            System.out.println("\n");
+            System.out.println(" 1) Mayo");
+            System.out.println(" 2) Ranch");
+            System.out.println(" 3) Chipotle");
+            System.out.println(" 4) Mustard");
+            System.out.println(" 0) Done");
+
+            String choice = scanner.nextLine();
+
+            switch (choice){
+                case "1":
+                    sandwich.addToppings(new Sauce("Mayo"));
+                    break;
+                case "2":
+                    sandwich.addToppings(new Sauce("Ranch"));
+                    break;
+                case "3":
+                    sandwich.addToppings(new Sauce("Chipotle"));
+                    break;
+                case "4":
+                    sandwich.addToppings(new Sauce("Mustard"));
+                    break;
+                case "0":
+                    addingSauces = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
+     }
+
+    private void processAddSides(Sandwich sandwich){
+        boolean addingSides = true;
+
+        while (addingSides){
+            System.out.println("\n");
+            System.out.println("Choose sides:");
+            System.out.println(" 1) Lettuce");
+            System.out.println(" 2) Tomato");
+            System.out.println(" 3) Onion");
+            System.out.println(" 4) Pickles");
+            System.out.println(" 5) Peppers");
+            System.out.println(" 0) Done");
+
+            String choice = scanner.nextLine();
+
+            switch (choice){
+                case "1":
+                    sandwich.addToppings(new Sides("Lettuce"));
+                    break;
+                case "2":
+                    sandwich.addToppings(new Sides("Tomato"));
+                    break;
+                case "3":
+                    sandwich.addToppings(new Sides("Onion"));
+                    break;
+                case "4":
+                    sandwich.addToppings(new Sides("Pickles"));
+                    break;
+                case "5":
+                    sandwich.addToppings(new Sides("Peppers"));
+                    break;
+                case "0":
+                    addingSides = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
+    }
+
+
+}
