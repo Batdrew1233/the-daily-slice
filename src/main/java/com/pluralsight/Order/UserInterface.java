@@ -41,7 +41,14 @@ public class UserInterface {
         boolean cancelOrder = false;
         while (!cancelOrder){
             System.out.println("\n");
-            //Print cart here (Newest first)
+            System.out.println("====== Current Order ======");
+
+            if (order.isEmpty()){
+                System.out.println("No items added yet.");
+            }else {
+                System.out.println(order.displayOrder());
+                System.out.printf("Current Total: $%.2f%n", order.getTotal());
+            }
             System.out.println("\n");
             System.out.println("Order Menu");
             System.out.println(" 1) Add Item");
@@ -58,10 +65,16 @@ public class UserInterface {
                     order.addItem(sandwich);
                     break;
                 case "2":
-                    processDrinkOrder();
+                    Drink drink = processDrinkOrder();
+                    if (drink != null){
+                        order.addItem(drink);
+                    }
                     break;
                 case "3":
-                    processChipsOrder();
+                    Chip chip = processChipsOrder();
+                    if (chip != null){
+                        order.addItem(chip);
+                    }
                     break;
                 case "4":
                     checkout();
@@ -77,8 +90,16 @@ public class UserInterface {
         }
     }
     public void checkout(){
+        if (!order.hasSandwich() && !order.hasDrinkOrChips()){
+            System.out.println("\n");
+            System.out.println("You must order at least chips or a drink if no sandwich is purchased.");
+            return;
+        }
+
         System.out.println("\n");
         System.out.println("===== Checkout =====");
+        System.out.println(order.displayOrder());
+        System.out.println("Total: $" + order.getTotal());
 
     }
     private Sandwich processSandwichOrder(){
@@ -199,27 +220,38 @@ public class UserInterface {
 
                 String choice = scanner.nextLine();
 
-                boolean extra = processAskExtra();
 
                 switch (choice) {
-                    case "1":
+                    case "1": {
+                        boolean extra = processAskExtra();
                         sandwich.addToppings(new Meat("Steak", extra));
                         return;
-                    case "2":
+                    }
+                    case "2": {
+                        boolean extra = processAskExtra();
                         sandwich.addToppings(new Meat("Ham", extra));
                         return;
-                    case "3":
+                    }
+                    case "3": {
+                        boolean extra = processAskExtra();
                         sandwich.addToppings(new Meat("Salami", extra));
                         return;
-                    case "4":
+                    }
+                    case "4": {
+                        boolean extra = processAskExtra();
                         sandwich.addToppings(new Meat("Roast Beef", extra));
                         return;
-                    case "5":
+                    }
+                    case "5": {
+                        boolean extra = processAskExtra();
                         sandwich.addToppings(new Meat("Chicken", extra));
                         return;
-                    case "6":
+                    }
+                    case "6": {
+                        boolean extra = processAskExtra();
                         sandwich.addToppings(new Meat("Bacon", extra));
                         return;
+                    }
                     case "0":
                         return;
                     default:
@@ -240,21 +272,27 @@ public class UserInterface {
 
             String choice = scanner.nextLine();
 
-            boolean extra = processAskExtra();
-
             switch (choice) {
-                case "1":
+                case "1": {
+                    boolean extra = processAskExtra();
                     sandwich.addToppings(new Cheese("American", extra));
                     return;
-                case "2":
+                }
+                case "2": {
+                    boolean extra = processAskExtra();
                     sandwich.addToppings(new Cheese("Provolone", extra));
                     return;
-                case "3":
+                }
+                case "3": {
+                    boolean extra = processAskExtra();
                     sandwich.addToppings(new Cheese("Cheddar", extra));
                     return;
-                case "4":
+                }
+                case "4": {
+                    boolean extra = processAskExtra();
                     sandwich.addToppings(new Cheese("Swiss", extra));
                     return;
+                }
                 case "0":
                     return;
                 default:
@@ -402,6 +440,8 @@ public class UserInterface {
                 case "3":
                     size = "Large";
                     break;
+                case "0":
+                    return null;
                 default:
                     System.out.println("Invalid choice.");
                     continue;
@@ -459,6 +499,7 @@ public class UserInterface {
             System.out.println(" 2) Sour Cream");
             System.out.println(" 3) Salt & Vinegar");
             System.out.println(" 4) Cheddar");
+            System.out.println(" 0) No Chips");
             System.out.println("Your Choice: ");
 
             String choice = scanner.nextLine();
@@ -472,6 +513,8 @@ public class UserInterface {
                     return new Chip("Salt & Vinegar");
                 case "4":
                     return new Chip("Cheddar");
+                case "0":
+                    return null;
                 default:
                     System.out.println("Invalid Choice.");
             }

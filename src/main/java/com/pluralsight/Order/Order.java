@@ -30,4 +30,25 @@ public class Order {
         return details;
 
     }
+
+    public boolean hasSandwich(){
+        for (IOrder item : items){
+            if (item instanceof Sandwich){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasDrinkOrChips(){
+        for (IOrder item : items){
+            if (item instanceof Drink || item instanceof Chip){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isEmpty(){
+        return items.isEmpty();
+    }
 }
