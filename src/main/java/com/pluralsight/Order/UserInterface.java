@@ -58,10 +58,10 @@ public class UserInterface {
                     order.addItem(sandwich);
                     break;
                 case "2":
-                    //Go to make drink
+                    processDrinkOrder();
                     break;
                 case "3":
-                    //Go to add chips
+                    processChipsOrder();
                     break;
                 case "4":
                     checkout();
@@ -373,6 +373,107 @@ public class UserInterface {
                     break;
                 default:
                     System.out.println("Invalid choice.");
+            }
+        }
+    }
+
+    private Drink processDrinkOrder(){
+        String size;
+        String flavor;
+
+        while(true){
+            System.out.println("\n");
+            System.out.println("What Size?");
+            System.out.println(" 1) Small");
+            System.out.println(" 2) Medium");
+            System.out.println(" 3) Large");
+            System.out.println(" 0) No drink");
+            System.out.print("Your Choice: ");
+
+            String choice = scanner.nextLine();
+
+            switch (choice){
+                case "1":
+                    size = "Small";
+                    break;
+                case "2":
+                    size = "Medium";
+                    break;
+                case "3":
+                    size = "Large";
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+                    continue;
+            }
+            break;
+        }
+        while (true){
+            System.out.println("\n");
+            System.out.println("What Flavor?");
+            System.out.println(" 1) Coke ");
+            System.out.println(" 2) Pepsi");
+            System.out.println(" 3) Root Beer");
+            System.out.println(" 4) Fruit Punch");
+            System.out.println(" 5) Lemonade");
+            System.out.println(" 6) Iced Tea ");
+            System.out.println(" 0) No drink");
+            System.out.print("Your choice: ");
+
+            String choice2 = scanner.nextLine();
+
+            switch (choice2){
+                case "1":
+                    flavor = "Coke";
+                    break;
+                case "2":
+                    flavor = "Pepsi";
+                    break;
+                case "3":
+                    flavor = "Root Beer";
+                    break;
+                case "4":
+                    flavor = "Fruit Punch";
+                    break;
+                case "5":
+                    flavor = "Lemonade";
+                    break;
+                case "6":
+                    flavor = "Iced Tea";
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+                    continue;
+            }
+            break;
+        }
+        return new Drink(size, flavor);
+
+    }
+
+    private Chip processChipsOrder(){
+        while (true){
+            System.out.println("\n");
+            System.out.println("Choose Chips:");
+            System.out.println(" 1) BBQ");
+            System.out.println(" 2) Sour Cream");
+            System.out.println(" 3) Salt & Vinegar");
+            System.out.println(" 4) Cheddar");
+            System.out.println("Your Choice: ");
+
+            String choice = scanner.nextLine();
+
+            switch (choice){
+                case "1":
+                    return new Chip("BBQ");
+                case "2":
+                    return new Chip("Sour Cream");
+                case "3":
+                    return new Chip("Salt & Vinegar");
+                case "4":
+                    return new Chip("Cheddar");
+                default:
+                    System.out.println("Invalid Choice.");
             }
         }
     }
