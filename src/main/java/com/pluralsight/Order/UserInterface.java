@@ -99,7 +99,7 @@ public class UserInterface {
         System.out.println("\n");
         System.out.println("===== Checkout =====");
         System.out.println(order.displayOrder());
-        System.out.println("Total: $" + order.getTotal());
+        System.out.println("Total: $%.2f%n" + order.getTotal());
 
     }
     private Sandwich processSandwichOrder(){
@@ -457,7 +457,6 @@ public class UserInterface {
             System.out.println(" 4) Fruit Punch");
             System.out.println(" 5) Lemonade");
             System.out.println(" 6) Iced Tea ");
-            System.out.println(" 0) No drink");
             System.out.print("Your choice: ");
 
             String choice2 = scanner.nextLine();
