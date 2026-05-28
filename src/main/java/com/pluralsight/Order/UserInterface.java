@@ -350,6 +350,7 @@ public class UserInterface {
 
         while (addingSauces) {
             System.out.println("\n");
+            System.out.println("Choose Sauce:");
             System.out.println(" 1) Mayo");
             System.out.println(" 2) Ranch");
             System.out.println(" 3) Chipotle");
