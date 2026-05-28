@@ -25,6 +25,6 @@ public class Drink implements IOrder{
 
     @Override
     public String getdescription() {
-        return "Drink: ";
+        return size + " " + flavor + "Drink";
     }
 }

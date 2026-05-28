@@ -99,7 +99,7 @@ public class UserInterface {
         System.out.println("\n");
         System.out.println("===== Checkout =====");
         System.out.println(order.displayOrder());
-        System.out.println("Total: $%.2f%n" + order.getTotal());
+        System.out.printf("Total: $%.2f%n" , order.getTotal());
 
     }
     private Sandwich processSandwichOrder(){
@@ -123,7 +123,7 @@ public class UserInterface {
             System.out.println(" 2) 8 inch");
             System.out.println(" 3) 12 inch");
             System.out.println("Your choice: ");
-            String  choice = scanner.nextLine();
+            String choice = scanner.nextLine();
 
             switch(choice) {
                 case "1":
@@ -147,6 +147,7 @@ public class UserInterface {
             System.out.println(" 2) Wheat");
             System.out.println(" 3) Rye");
             System.out.println(" 4) Wrap");
+            System.out.println("Your choice: ");
             String choice = scanner.nextLine();
 
             switch(choice) {
@@ -217,7 +218,7 @@ public class UserInterface {
                 System.out.println(" 5) Chicken");
                 System.out.println(" 6) Bacon");
                 System.out.println(" 0) No Meat");
-
+                System.out.println("Your choice: ");
                 String choice = scanner.nextLine();
 
 
@@ -269,7 +270,7 @@ public class UserInterface {
             System.out.println(" 3) Cheddar");
             System.out.println(" 4) Swiss");
             System.out.println(" 0) No Cheese");
-
+            System.out.println("Your choice: ");
             String choice = scanner.nextLine();
 
             switch (choice) {
@@ -313,7 +314,7 @@ public class UserInterface {
             System.out.println(" 4) Pickles");
             System.out.println(" 5) Peppers");
             System.out.println(" 0) Done");
-
+            System.out.println("Your choice: ");
             String choice = scanner.nextLine();
 
             switch (choice){
@@ -350,7 +351,7 @@ public class UserInterface {
             System.out.println(" 3) Chipotle");
             System.out.println(" 4) Mustard");
             System.out.println(" 0) Done");
-
+            System.out.println("Your choice: ");
             String choice = scanner.nextLine();
 
             switch (choice){
@@ -387,7 +388,7 @@ public class UserInterface {
             System.out.println(" 4) Pickles");
             System.out.println(" 5) Peppers");
             System.out.println(" 0) Done");
-
+            System.out.println("Your choice: ");
             String choice = scanner.nextLine();
 
             switch (choice){
