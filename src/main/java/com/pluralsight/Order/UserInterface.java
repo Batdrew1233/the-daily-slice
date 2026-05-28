@@ -1,5 +1,6 @@
 package com.pluralsight.Order;
 
+import com.pluralsight.receipt.ReceiptFileManager;
 import com.pluralsight.toppings.*;
 
 import java.util.Scanner;
@@ -101,6 +102,9 @@ public class UserInterface {
         System.out.println(order.displayOrder());
         System.out.printf("Total: $%.2f%n" , order.getTotal());
 
+        //Save Order to file here
+        ReceiptFileManager receiptFileManager = new ReceiptFileManager();
+        receiptFileManager.saveReceipt(order);
     }
     private Sandwich processSandwichOrder(){
         String size = processGetSize();
