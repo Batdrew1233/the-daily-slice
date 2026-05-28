@@ -1,6 +1,6 @@
 package com.pluralsight.Order;
 
-public class Chip implements IOrder{
+public class Chip implements OrderItem {
     private String chipType;
 
     public Chip(String chipType) {
