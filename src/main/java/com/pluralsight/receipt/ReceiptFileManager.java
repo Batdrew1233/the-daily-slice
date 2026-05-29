@@ -17,7 +17,7 @@ public class ReceiptFileManager {
             File receiptFolder = new File("receipts");
 
             if (!receiptFolder.exists()){
-                receiptFolder.mkdir();
+                receiptFolder.mkdir();//Creates the receipts folder
             }
 
             LocalDateTime now = LocalDateTime.now();
