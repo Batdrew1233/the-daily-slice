@@ -2,6 +2,7 @@ package com.pluralsight.receipt;
 import com.pluralsight.Order.Order;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,6 +11,12 @@ public class ReceiptFileManager {
 
     public void saveReceipt(Order order) {
         try {
+            File receiptFolder = new File("receipts");
+
+            if (!receiptFolder.exists()){
+                receiptFolder.mkdir();
+            }
+
             LocalDateTime now = LocalDateTime.now();
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
