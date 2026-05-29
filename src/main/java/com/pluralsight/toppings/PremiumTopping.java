@@ -8,16 +8,18 @@ public abstract class PremiumTopping extends Topping {
         this.extra = extra;
     }
 
+    /*
+     * Returns whether the topping is an extra portion.
+     */
     public boolean isExtra() {
         return extra;
     }
 
+    /*
+     * Calculates the price of the premium topping based on sandwich size.
+     */
     public abstract double getPrice(String size);
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
 
 
 }

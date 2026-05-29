@@ -9,6 +9,9 @@ public class Drink implements IOrderItem {
         this.flavor = flavor;
     }
 
+    /*
+     * Calculates and returns the price of the drink.
+     */
     @Override
     public double getPrice() {
         if (size.equalsIgnoreCase("small")){
@@ -23,8 +26,11 @@ public class Drink implements IOrderItem {
         }
     }
 
+    /*
+     * Returns a description of the drink.
+     */
     @Override
-    public String getdescription() {
-        return size + " " + flavor + "Drink";
+    public String getDescription() {
+        return size + " " + flavor + " Drink";
     }
 }

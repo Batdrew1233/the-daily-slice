@@ -2,10 +2,16 @@ package com.pluralsight.toppings;
 
 public class Cheese extends PremiumTopping {
 
+    /*
+     * Creates a Cheese topping with the specified name and extra option.
+     */
     public Cheese(String name, boolean extra) {
         super(name, extra);
     }
 
+    /*
+     * Calculates the price of the cheese with sandwich size and if extra was selected.
+     */
     @Override
     public double getPrice(String size) {
         return switch (size) {

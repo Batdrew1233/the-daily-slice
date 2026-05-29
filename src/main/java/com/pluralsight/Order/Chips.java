@@ -7,13 +7,19 @@ public class Chips implements IOrderItem {
         this.chipType = chipType;
     }
 
+    /*
+     * Calculates and returns the price of the chips.
+     */
     @Override
     public double getPrice() {
         return 1.50;
     }
 
+    /*
+     * Returns a description of the chips.
+     */
     @Override
-    public String getdescription() {
-        return chipType + "Chips";
+    public String getDescription() {
+        return chipType + " Chips";
     }
 }

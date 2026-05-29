@@ -2,10 +2,16 @@ package com.pluralsight.toppings;
 
 public class Meat extends PremiumTopping {
 
+    /*
+     * Creates a meat topping with the specified name and extra option.
+     */
     public Meat(String name, boolean extra) {
         super(name, extra);
     }
 
+    /*
+     * Calculates the price of the meat with sandwich size and if extra was selected.
+     */
     @Override
     public double getPrice(String size) {
         return switch (size) {

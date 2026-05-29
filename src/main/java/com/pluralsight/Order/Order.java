@@ -6,12 +6,17 @@ import java.util.List;
 public class Order {
     private List<IOrderItem> items = new ArrayList<>();
 
+    /*
+    Adds an item to the current order
+     */
     public void addItem(IOrderItem item){
         items.add(item);
-
     }
+
+    /*
+    Calculates and returns the total cost of the order.
+     */
     public double getTotal(){
-        //Search through order items, get price for each item and calculate.
         double total = 0;
 
         for(IOrderItem item : items){
@@ -20,17 +25,24 @@ public class Order {
         return total;
 
     }
+
+    /*
+    Builds and returns a formatted list of all items in the order.
+     */
     public String displayOrder(){
-        //search through order and get description and print
         String details = "";
 
         for (IOrderItem item : items){
-            details += item.getdescription() + "\n";
+            details += item.getDescription() + "\n";
         }
         return details;
 
     }
 
+    /*
+    Checks if the order contains a sandwich.
+    Returns true if the sandwich exists in the order.
+     */
     public boolean hasSandwich(){
         for (IOrderItem item : items){
             if (item instanceof Sandwich){
@@ -40,6 +52,10 @@ public class Order {
         return false;
     }
 
+    /*
+     Checks if the order contains a drink or chips.
+     Return true if a drink or chips exists in the order
+     */
     public boolean hasDrinkOrChips(){
         for (IOrderItem item : items){
             if (item instanceof Drink || item instanceof Chips){
@@ -48,6 +64,10 @@ public class Order {
         }
         return false;
     }
+
+    /*
+    Checks if the order is empty and returns true if it is
+     */
     public boolean isEmpty(){
         return items.isEmpty();
     }

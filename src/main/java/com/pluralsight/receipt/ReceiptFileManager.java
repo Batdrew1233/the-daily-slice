@@ -8,7 +8,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ReceiptFileManager {
-
+    /*
+    Checks if there is a file names receipts.
+    If no file exists it will create one and save the receipt.
+     */
     public void saveReceipt(Order order) {
         try {
             File receiptFolder = new File("receipts");
