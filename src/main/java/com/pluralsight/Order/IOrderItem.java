@@ -1,6 +1,6 @@
 package com.pluralsight.Order;
 
-public interface OrderItem {
+public interface IOrderItem {
     double getPrice();
     String getdescription();
 }

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private List<OrderItem> items = new ArrayList<>();
+    private List<IOrderItem> items = new ArrayList<>();
 
-    public void addItem(OrderItem item){
+    public void addItem(IOrderItem item){
         items.add(item);
 
     }
@@ -14,7 +14,7 @@ public class Order {
         //Search through order items, get price for each item and calculate.
         double total = 0;
 
-        for(OrderItem item : items){
+        for(IOrderItem item : items){
             total += item.getPrice();
         }
         return total;
@@ -24,7 +24,7 @@ public class Order {
         //search through order and get description and print
         String details = "";
 
-        for (OrderItem item : items){
+        for (IOrderItem item : items){
             details += item.getdescription() + "\n";
         }
         return details;
@@ -32,7 +32,7 @@ public class Order {
     }
 
     public boolean hasSandwich(){
-        for (OrderItem item : items){
+        for (IOrderItem item : items){
             if (item instanceof Sandwich){
                 return true;
             }
@@ -41,8 +41,8 @@ public class Order {
     }
 
     public boolean hasDrinkOrChips(){
-        for (OrderItem item : items){
-            if (item instanceof Drink || item instanceof Chip){
+        for (IOrderItem item : items){
+            if (item instanceof Drink || item instanceof Chips){
                 return true;
             }
         }

@@ -72,9 +72,9 @@ public class UserInterface {
                     }
                     break;
                 case "3":
-                    Chip chip = processChipsOrder();
-                    if (chip != null){
-                        order.addItem(chip);
+                    Chips chips = processChipsOrder();
+                    if (chips != null){
+                        order.addItem(chips);
                     }
                     break;
                 case "4":
@@ -361,16 +361,16 @@ public class UserInterface {
 
             switch (choice){
                 case "1":
-                    sandwich.addToppings(new Sauce("Mayo"));
+                    sandwich.addToppings(new RegularTopping("Mayo"));
                     break;
                 case "2":
-                    sandwich.addToppings(new Sauce("Ranch"));
+                    sandwich.addToppings(new RegularTopping("Ranch"));
                     break;
                 case "3":
-                    sandwich.addToppings(new Sauce("Chipotle"));
+                    sandwich.addToppings(new RegularTopping("Chipotle"));
                     break;
                 case "4":
-                    sandwich.addToppings(new Sauce("Mustard"));
+                    sandwich.addToppings(new RegularTopping("Mustard"));
                     break;
                 case "0":
                     addingSauces = false;
@@ -398,19 +398,19 @@ public class UserInterface {
 
             switch (choice){
                 case "1":
-                    sandwich.addToppings(new Sides("Lettuce"));
+                    sandwich.addToppings(new RegularTopping("Lettuce"));
                     break;
                 case "2":
-                    sandwich.addToppings(new Sides("Tomato"));
+                    sandwich.addToppings(new RegularTopping("Tomato"));
                     break;
                 case "3":
-                    sandwich.addToppings(new Sides("Onion"));
+                    sandwich.addToppings(new RegularTopping("Onion"));
                     break;
                 case "4":
-                    sandwich.addToppings(new Sides("Pickles"));
+                    sandwich.addToppings(new RegularTopping("Pickles"));
                     break;
                 case "5":
-                    sandwich.addToppings(new Sides("Peppers"));
+                    sandwich.addToppings(new RegularTopping("Peppers"));
                     break;
                 case "0":
                     addingSides = false;
@@ -496,7 +496,7 @@ public class UserInterface {
 
     }
 
-    private Chip processChipsOrder(){
+    private Chips processChipsOrder(){
         while (true){
             System.out.println("\n");
             System.out.println("Choose Chips:");
@@ -511,13 +511,13 @@ public class UserInterface {
 
             switch (choice){
                 case "1":
-                    return new Chip("BBQ");
+                    return new Chips("BBQ");
                 case "2":
-                    return new Chip("Sour Cream");
+                    return new Chips("Sour Cream");
                 case "3":
-                    return new Chip("Salt & Vinegar");
+                    return new Chips("Salt & Vinegar");
                 case "4":
-                    return new Chip("Cheddar");
+                    return new Chips("Cheddar");
                 case "0":
                     return null;
                 default:

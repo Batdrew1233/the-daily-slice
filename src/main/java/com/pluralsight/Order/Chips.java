@@ -1,9 +1,9 @@
 package com.pluralsight.Order;
 
-public class Chip implements OrderItem {
+public class Chips implements IOrderItem {
     private String chipType;
 
-    public Chip(String chipType) {
+    public Chips(String chipType) {
         this.chipType = chipType;
     }
 

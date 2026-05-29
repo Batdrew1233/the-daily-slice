@@ -5,7 +5,7 @@ import com.pluralsight.toppings.Topping;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich implements OrderItem {
+public class Sandwich implements IOrderItem {
     private String size;
     private String breadType;
     private boolean toasted;

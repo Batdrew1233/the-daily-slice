@@ -14,7 +14,7 @@ public class ReceiptFileManager {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
 
-            String fileName = "receipts-" + now.format(formatter) + ".txt";
+            String fileName = "receipts/" + now.format(formatter) + ".txt";
 
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
 

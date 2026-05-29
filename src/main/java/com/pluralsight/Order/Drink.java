@@ -1,6 +1,6 @@
 package com.pluralsight.Order;
 
-public class Drink implements OrderItem {
+public class Drink implements IOrderItem {
     private String size;
     private String flavor;
 
